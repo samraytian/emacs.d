@@ -13,8 +13,11 @@
 
 ;;; Code:
 
-;; Defer garbage collection further back in the startup process
+;; GC settings
+;; Increasing the gc-cons-threshold during startup can speed up the loading time. 
+;; Then decrease it back to a more reasonable value after startup.
 (setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'emacs-startup-hook (lambda () (setq gc-cons-threshold 16777216)))
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. We handle package initialization,
@@ -30,17 +33,6 @@
 ;; to skip the mtime checks on every *.elc file.
 (setq load-prefer-newer noninteractive)
 
-;; Inhibit resizing frame
-(setq frame-inhibit-implied-resize t)
-
-;; Faster to disable these here (before they've been initialized)
-(push '(menu-bar-lines . 0) default-frame-alist)
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-
-;; Disable startup screen
-(setq inhibit-startup-screen t)
-
 ;; No title bar in Linux's GUI mode
 ;; using `undecorated` or `undecorated-rounded` for round corners
 (when (and (eq system-type 'gnu/linux) (display-graphic-p))
@@ -51,6 +43,17 @@
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (setq ns-use-proxy-icon nil)
   (setq frame-title-format nil))
+
+;; Inhibit resizing frame
+(setq frame-inhibit-implied-resize t)
+
+;; Disable startup screen
+(setq inhibit-startup-screen t)
+
+;; Faster to disable these here (before they've been initialized)
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
 
 ;; Prevent flashing of unstyled modeline at startup
 (setq-default mode-line-format nil)
