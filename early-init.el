@@ -34,7 +34,7 @@
 (setq load-prefer-newer noninteractive)
 
 ;; No title bar in Linux's GUI mode
-;; using `undecorated` or `undecorated-rounded` for round corners
+;; using `undecorated` or `undecorated-rounded' for round corners
 (when (and (eq system-type 'gnu/linux) (display-graphic-p))
   (add-to-list 'default-frame-alist '(undecorated . t)))
 
