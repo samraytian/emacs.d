@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2023 Samray Tian
 
-;; Author: Samray Tian <samraytian@gmail.com>
+;; Author: Samray Tian <samray.tian@gmail.com>
 ;; URL: https://github.com/samraytian/emacs.d
 
 ;;; Commentary:
