@@ -39,7 +39,7 @@
   (add-to-list 'default-frame-alist '(undecorated . t)))
 
 ;; Natural title bar with no text in macOS's GUI mode
-(when (featurep 'ns)
+(when (or (featurep 'ns) (featurep 'mac))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (setq ns-use-proxy-icon nil)
   (setq frame-title-format nil))

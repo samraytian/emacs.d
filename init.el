@@ -9,3 +9,7 @@
 
 ;;; Code:
 
+;; Fix the issue of the title bar becomes taller on macOS 14 while using emacs-mac
+;; This is a workaround, and should be removed when the bug is fixed.
+(when (featurep 'mac)
+  (add-hook 'window-setup-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0))))
