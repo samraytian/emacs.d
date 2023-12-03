@@ -17,3 +17,16 @@
 ;; Set initial frame size
 (when (display-graphic-p)
   (setq initial-frame-alist '((width . 120) (height . 50))))
+
+;; Modify key bindings for macOS
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta)
+  (setq mac-command-modifier 'super))
+
+;; Set mac like common key bindings, like copy/paste/undo/save etc.
+(global-set-key (kbd "s-a") 'mark-whole-buffer)   ; select all
+(global-set-key (kbd "s-c") 'kill-ring-save)      ; copy
+(global-set-key (kbd "s-x") 'kill-region)         ; cut
+(global-set-key (kbd "s-s") 'save-buffer)         ; save
+(global-set-key (kbd "s-v") 'yank)                ; paste
+(global-set-key (kbd "s-z") 'undo)                ; undo
