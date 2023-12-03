@@ -13,3 +13,7 @@
 ;; This is a workaround, and should be removed when the bug is fixed.
 (when (featurep 'mac)
   (add-hook 'window-setup-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0))))
+
+;; Set initial frame size
+(when (display-graphic-p)
+  (setq initial-frame-alist '((width . 120) (height . 50))))
