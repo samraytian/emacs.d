@@ -14,9 +14,8 @@
 (when (featurep 'mac)
   (add-hook 'window-setup-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0))))
 
-;; Set initial frame size
-(when (display-graphic-p)
-  (setq initial-frame-alist '((width . 120) (height . 50))))
+;; Load path
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; Modify key bindings for macOS
 (when (eq system-type 'darwin)
@@ -30,3 +29,7 @@
 (global-set-key (kbd "s-s") 'save-buffer)         ; save
 (global-set-key (kbd "s-v") 'yank)                ; paste
 (global-set-key (kbd "s-z") 'undo)                ; undo
+
+;; Requisites
+
+(require 'init-ui)
