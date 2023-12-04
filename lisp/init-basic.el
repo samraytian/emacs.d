@@ -1,4 +1,4 @@
-;;; init-basic.el --- Basic configurations. -*- lexical-binding: t -*-
+;;; init-basic.el --- Basic settings. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2023 Samray Tian
 
@@ -7,14 +7,16 @@
 
 ;;; Commentary:
 ;;
-;; Basic configurations for better experience and appearance.
+;; Basic settings that need no external packages, for better 
+;; experience and appearance.
+;;
+;; Such as:
+;;   - Settings that help to improve performance.
+;;   - Basic key bindings.
+;;   - Basic ui settings that could be applied after startup.
 ;;
 
 ;;; Code:
-
-;;;
-;;; Performance
-;;;
 
 ;; Display the startup time
 (add-hook 'emacs-startup-hook
@@ -37,10 +39,6 @@
                 (setq file-name-handler-alist
                       (delete-dups (append file-name-handler-alist old-value))))
               101)))
-
-;;;
-;;; Basic Keybindings
-;;;
 
 ;; Modify key bindings for macOS
 (when (eq system-type 'darwin)
