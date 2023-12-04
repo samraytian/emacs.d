@@ -33,30 +33,35 @@
 ;; to skip the mtime checks on every *.elc file.
 (setq load-prefer-newer noninteractive)
 
-;; No title bar in Linux's GUI mode
+;; No title bar in Linux
 ;; using `undecorated` or `undecorated-rounded' for round corners
-(when (and (eq system-type 'gnu/linux) (display-graphic-p))
+(when (eq system-type 'gnu/linux)
   (add-to-list 'default-frame-alist '(undecorated . t)))
 
-;; Natural title bar with no text in macOS's GUI mode
-(when (or (featurep 'ns) (featurep 'mac))
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; Natural title bar in macOS
+(when (eq system-type 'darwin)
   (setq ns-use-proxy-icon nil)
-  (setq frame-title-format nil))
+  (setq frame-title-format '("%n %b"))
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . light)))
+
+;; Early frame settings before fisrt frame is created
+(setq default-frame-alist
+  (append (list
+    '(font . "Monaspace Neon-13")
+    '(width . 120)
+    '(height . 50))
+    default-frame-alist))
+
+(setq initial-frame-alist '((tool-bar-lines . 0)
+                            (menu-bar-lines . 0)
+                            (vertical-scroll-bars . nil)))
 
 ;; Inhibit resizing frame
 (setq frame-inhibit-implied-resize t)
 
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
-
-;; Faster to disable these here (before they've been initialized)
-(push '(menu-bar-lines . 0) default-frame-alist)
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-
-;; Prevent flashing of unstyled modeline at startup
-(setq-default mode-line-format nil)
 
 (provide 'early-init)
 
