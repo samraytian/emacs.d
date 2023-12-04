@@ -14,6 +14,15 @@
 (when (featurep 'mac)
   (add-hook 'window-setup-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0))))
 
+;; Display the startup time
+(add-hook 'emacs-startup-hook
+	  (lambda ()
+	    (message "Emacs loaded in %s with %d garbage collections."
+		     (format "%.2f seconds"
+			     (float-time
+			      (time-subtract after-init-time before-init-time)))
+		     gcs-done)))
+
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
