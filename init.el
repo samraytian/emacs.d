@@ -9,36 +9,11 @@
 
 ;;; Code:
 
-;; Fix the issue of the title bar becomes taller on macOS 14 while using emacs-mac
-;; This is a workaround, and should be removed when the bug is fixed.
-(when (featurep 'mac)
-  (add-hook 'window-setup-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0))))
-
-;; Display the startup time
-(add-hook 'emacs-startup-hook
-	  (lambda ()
-	    (message "Emacs loaded in %s with %d garbage collections."
-		     (format "%.2f seconds"
-			     (float-time
-			      (time-subtract after-init-time before-init-time)))
-		     gcs-done)))
-
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;; Modify key bindings for macOS
-(when (eq system-type 'darwin)
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'super))
+;;;
+;;; Requisites
+;;;
 
-;; Set mac like common key bindings, like copy/paste/undo/save etc.
-(global-set-key (kbd "s-a") 'mark-whole-buffer)   ; select all
-(global-set-key (kbd "s-c") 'kill-ring-save)      ; copy
-(global-set-key (kbd "s-x") 'kill-region)         ; cut
-(global-set-key (kbd "s-s") 'save-buffer)         ; save
-(global-set-key (kbd "s-v") 'yank)                ; paste
-(global-set-key (kbd "s-z") 'undo)                ; undo
-
-;; Requisites
-
-(require 'init-ui)
+(require 'init-basic)
