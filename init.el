@@ -17,3 +17,4 @@
 ;;;
 
 (require 'init-basic)
+(require 'init-package)

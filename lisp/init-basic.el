@@ -40,10 +40,14 @@
                       (delete-dups (append file-name-handler-alist old-value))))
               101)))
 
+;; Default to utf-8 encoding
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+
 ;; Modify key bindings for macOS
 (when (eq system-type 'darwin)
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'super))
+  (setq mac-option-modifier 'super)
+  (setq mac-command-modifier 'meta))
 
 ;; Set mac like common key bindings, like copy/paste/undo/save etc.
 (global-set-key (kbd "s-a") 'mark-whole-buffer)   ; select all
@@ -54,3 +58,5 @@
 (global-set-key (kbd "s-z") 'undo)                ; undo
 
 (provide 'init-basic)
+
+;; init-basic.el ends here

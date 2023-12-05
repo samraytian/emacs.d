@@ -9,3 +9,10 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+# package.el
+elpa
+
+# no-littering etc and var folders
+var
+etc
