@@ -44,7 +44,7 @@
 ;; Early frame settings before fisrt frame is created
 (setq default-frame-alist
   (append (list
-    '(font . "Monaspace Neon-13")
+    '(font . "Monaspace Neon-14")
     '(width . 120)
     '(height . 50))
     default-frame-alist))
