@@ -39,7 +39,7 @@
   (setq ns-use-proxy-icon nil)
   (setq frame-title-format '("%n %b"))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . light)))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 ;; Early frame settings before fisrt frame is created
 (setq default-frame-alist
