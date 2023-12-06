@@ -36,10 +36,6 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Emacs auto-save file name settings
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "var/auto-save/" user-emacs-directory) t)))
-
 ;; Emacs auto-save-list path settings
 (setq auto-save-list-file-prefix
       (expand-file-name "var/auto-save-list/saves-" user-emacs-directory))
