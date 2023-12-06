@@ -45,7 +45,10 @@
 (eval-when-compile
   (require 'use-package))
 
+;; Use packages that integrate with use-package
 (use-package use-package-ensure-system-package)
+(use-package diminish)
+(use-package bind-key)
 
 (provide 'init-elpa)
 
