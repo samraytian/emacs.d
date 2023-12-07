@@ -9,6 +9,10 @@
 
 ;;; Code:
 
+(let ((minver "29.1"))
+  (when (version< emacs-version minver)
+    (error "Emacs %s or higher is required!" minver)))
+
 ;; Display the startup time
 (add-hook 'emacs-startup-hook
 	  (lambda ()
