@@ -38,5 +38,7 @@
   (require 'init-basics)    ;; emacs basic settings
   (require 'init-editor)    ;; default editor behavior
   (require 'init-keys)      ;; keybindings
+  (require 'init-comp)      ;; auto completion: vertico, consult, corfu, etc
   (require 'init-ui)        ;; theme, font, modeline, etc
+  (require 'init-org)       ;; org mode
   )
