@@ -16,6 +16,9 @@
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 
+;; Use shorter answers for `yes-or-no-p'
+(setopt use-short-answers t)
+
 ;; Keep emacs home dir clean
 (use-package no-littering)
 
