@@ -60,5 +60,4 @@
 (setq inhibit-startup-screen t)
 
 (provide 'early-init)
-
 ;;; early-init.el ends here

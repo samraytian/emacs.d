@@ -7,7 +7,7 @@
 
 ;;; Commentary:
 ;;
-;; Basic settings for better experience and appearance.
+;; Basic settings for better experience.
 ;;
 
 ;;; Code:
@@ -16,37 +16,32 @@
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 
-;; Modify key bindings for macOS
-(when (eq system-type 'darwin)
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'super))
+;; Keep emacs home dir clean
+(use-package no-littering)
 
-;; Set mac like common key bindings, like copy/paste/undo/save etc.
-(global-set-key (kbd "s-a") 'mark-whole-buffer)   ; select all
-(global-set-key (kbd "s-c") 'kill-ring-save)      ; copy
-(global-set-key (kbd "s-x") 'kill-region)         ; cut
-(global-set-key (kbd "s-s") 'save-buffer)         ; save
-(global-set-key (kbd "s-v") 'yank)                ; paste
-(global-set-key (kbd "s-z") 'undo)                ; undo
-
-;; Emacs custom file settings
-(setq custom-file
-      (expand-file-name "etc/custom.el" user-emacs-directory))
-
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-;; Emacs auto-save-list path settings
-(setq auto-save-list-file-prefix
-      (expand-file-name "var/auto-save-list/saves-" user-emacs-directory))
-
-;; Emacs backup directory settings
-(setq backup-directory-alist
-      `((".*" . ,(expand-file-name "var/backup/" user-emacs-directory))))
-
-;; Emacs lockfile settings
+;; Prevent to create lockfiles
 (setq create-lockfiles nil)
 
-(provide 'init-basic)
+;; Save history
+(use-package savehist
+  :hook (after-init . savehist-mode)
+  :config
+  (setq history-length 1000)
+  (setq history-delete-duplicates t)
+  (setq savehist-autosave-interval 300)
+  (setq enable-recursive-minibuffers t)
+  (setq savehist-additional-variables '(mark-ring
+                                        global-mark-ring
+                                        search-ring
+                                        regexp-search-ring
+                                        extended-command-history))
+  (setq savehist-file (no-littering-expand-var-file-name "history")))
 
+;; Save place, open file at last edit position
+(use-package saveplace
+  :hook (after-init . save-place-mode)
+  :config
+  (setq save-place-file (no-littering-expand-var-file-name "places")))
+
+(provide 'init-basic)
 ;; init-basic.el ends here

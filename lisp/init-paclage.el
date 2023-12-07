@@ -1,4 +1,4 @@
-;;; init-elpa.el --- Package management.  -*- lexical-binding: t -*-
+;;; init-paclage.el --- Package management.  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2023 Samray Tian
 
@@ -34,7 +34,6 @@
 ;; Configure use-package
 (eval-and-compile
   (setq use-package-always-ensure t)
-  (setq use-package-always-defer t)
   (setq use-package-expand-minimally t)
   (setq use-package-enable-imenu-support t)
   (setq use-package-compute-statistics t)
@@ -50,6 +49,5 @@
 (use-package diminish)
 (use-package bind-key)
 
-(provide 'init-elpa)
-
-;; init-elpa.el ends here
+(provide 'init-paclage)
+;; init-paclage.el ends here
