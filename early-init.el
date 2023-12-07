@@ -48,8 +48,8 @@
 (setq default-frame-alist
   (append (list
     '(font . "Monaspace Neon-13")
-    '(width . 120)
-    '(height . 50)
+    '(width . 160)
+    '(height . 60)
     ;; Prevent flashing background at startup for gruvbox theme
     '(background-color . "#282828"))
     default-frame-alist))
