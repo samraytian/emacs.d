@@ -29,6 +29,9 @@
 ;; to skip the mtime checks on every *.elc file.
 (setq load-prefer-newer noninteractive)
 
+;; Inhibit resizing frame
+(setq frame-inhibit-implied-resize t)
+
 ;; No title bar in Linux
 ;; using `undecorated` or `undecorated-rounded' for round corners
 (when (eq system-type 'gnu/linux)
@@ -44,20 +47,22 @@
 ;; Early frame settings before fisrt frame is created
 (setq default-frame-alist
   (append (list
-    '(font . "Monaspace Neon-14")
+    '(font . "Monaspace Neon-13")
     '(width . 120)
-    '(height . 50))
+    '(height . 50)
+    ;; Prevent flashing background at startup for gruvbox theme
+    '(background-color . "#282828"))
     default-frame-alist))
 
 (setq initial-frame-alist '((tool-bar-lines . 0)
                             (menu-bar-lines . 0)
                             (vertical-scroll-bars . nil)))
 
-;; Inhibit resizing frame
-(setq frame-inhibit-implied-resize t)
-
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
+
+;; Prevent flashing of unstyled modeline at startup
+(setq-default mode-line-format nil)
 
 (provide 'early-init)
 ;;; early-init.el ends here
