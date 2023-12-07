@@ -1,4 +1,4 @@
-;;; init-basic.el --- Basic settings. -*- lexical-binding: t -*-
+;;; init-basics.el --- Basic settings. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2023 Samray Tian
 
@@ -46,5 +46,5 @@
   :config
   (setq save-place-file (no-littering-expand-var-file-name "places")))
 
-(provide 'init-basic)
-;; init-basic.el ends here
+(provide 'init-basics)
+;; init-basics.el ends here

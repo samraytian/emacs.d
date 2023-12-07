@@ -35,7 +35,7 @@
 ;; Requisites
 (with-temp-message ""
   (require 'init-paclage)   ;; package manager
-  (require 'init-basic)     ;; emacs basic settings
+  (require 'init-basics)    ;; emacs basic settings
   (require 'init-keys)      ;; keybindings
   (require 'init-ui)        ;; theme, font, modeline, etc
   )
