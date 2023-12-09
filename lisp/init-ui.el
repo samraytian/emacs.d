@@ -57,7 +57,7 @@
   :init (doom-modeline-mode 1)
   :custom
   (doom-modeline-hud t)
-  (doom-modeline-height 27)
+  (doom-modeline-height 25)
   (doom-modeline-vcs-max-length 30)
   (doom-modeline-env-version t)
   (doom-modeline-workspace-name nil)
