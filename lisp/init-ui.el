@@ -10,6 +10,13 @@
 
 ;;; Code:
 
+;; Set frame settings for deamon mode
+(when (daemonp)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (set-scroll-bar-mode nil)
+)
+
 ;; Rainbow Delimiters
 (use-package rainbow-delimiters
   :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
