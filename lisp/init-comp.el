@@ -7,7 +7,7 @@
 
 ;;; Commentary:
 ;;
-;; Auto completion system for Emacs using vertico.
+;; Auto completion using vertico, orderless, consult, corfu, etc.
 ;; 
 
 ;;; Code:
@@ -24,10 +24,6 @@
   (setq vertico-resize t)
   (setq enable-recursive-minibuffers t))
 
-;; Support pinyin first letter matching for Chinese characters in orderless, avy etc
-;; link: https://github.com/cute-jumper/pinyinlib.el
-(use-package pinyinlib)
-
 ;; Orderless
 ;; A completion style that gives completions in order of relevance
 ;; link: https://github.com/oantolin/orderless
@@ -35,10 +31,14 @@
   :init
   (setq completion-styles '(orderless partial-completion basic))
   (setq completion-category-defaults nil)
-  (setq completion-category-overrides nil)
-  :config
-  ;; make completion support pinyin, refer to
-  ;; https://emacs-china.org/t/vertico/17913/2
+  (setq completion-category-overrides nil))
+
+;; Support pinyin first letter matching for Chinese characters in orderless, avy etc
+;; link: https://github.com/cute-jumper/pinyinlib.el
+(use-package pinyinlib
+  :after orderless
+  :autoload pinyinlib-build-regexp-string
+  :init
   (defun completion--regex-pinyin (str)
     (orderless-regexp (pinyinlib-build-regexp-string str)))
   (add-to-list 'orderless-matching-styles 'completion--regex-pinyin))
