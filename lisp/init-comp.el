@@ -43,5 +43,20 @@
     (orderless-regexp (pinyinlib-build-regexp-string str)))
   (add-to-list 'orderless-matching-styles 'completion--regex-pinyin))
 
+;; Marginalia
+;; Rich annotations in the minibuffer
+;; link: https://github.com/minad/marginalia
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
+;; Consult
+;; Useful search and navigation commands
+;; link: https://github.com/minad/consult
+
+;; Embark
+;; Minibuffer actions and context menu
+;; link: https://github.com/oantolin/embark
+
 (provide 'init-comp)
 ;; init-comp.el ends here
