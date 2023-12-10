@@ -22,6 +22,13 @@
 	      ("gnu"    . "https://elpa.gnu.org/packages/")
 	      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
+;; Set package archive priorities
+(setq package-archive-priorities
+      '(("melpa"  . 20)
+        ("org"    . 10)
+        ("gnu"    . 5)
+        ("nongnu" . 0)))
+
 ;; Configure package.el before using it
 (setq package-quickstart nil
       package-native-compile t
