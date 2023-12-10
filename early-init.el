@@ -50,8 +50,7 @@
     '(font . "Monaspace Neon-13")
     '(width . 160)
     '(height . 60)
-    ;; Prevent flashing background at startup for gruvbox theme
-    '(background-color . "#282828"))
+    )
     default-frame-alist))
 
 (setq initial-frame-alist '((tool-bar-lines . 0)
@@ -60,9 +59,6 @@
 
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
-
-;; Prevent flashing of unstyled modeline at startup
-(setq-default mode-line-format nil)
 
 (provide 'early-init)
 ;;; early-init.el ends here
