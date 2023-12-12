@@ -43,23 +43,28 @@
 ;; GUI frame padding
 ;; spacious-padding: https://protesilaos.com/emacs/
 (use-package spacious-padding
-  :config (spacious-padding-mode))  
+  :init (spacious-padding-mode 1))
 
 ;; Modeline
 ;; doom-modeline: https://github.com/seagle0128/doom-modeline/tree/master
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1)
+  :init
+  (doom-modeline-mode 1)
+  (line-number-mode -1)
+  (column-number-mode -1)
+  (setq mode-line-position nil)
+  (setq mode-line-percent-position nil)
   :custom
-  (doom-modeline-hud t)
-  (doom-modeline-height 30)
-  (doom-modeline-vcs-max-length 30)
-  (doom-modeline-env-version t)
-  (doom-modeline-workspace-name nil)
-  (doom-modeline-unicode-fallback t)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-buffer-state-icon t)
-  (doom-modeline-buffer-file-name-style 'truncate-upto-project))
+  ((doom-modeline-hud t)
+   (doom-modeline-height 25)
+   (doom-modeline-vcs-max-length 30)
+   (doom-modeline-env-version t)
+   (doom-modeline-workspace-name nil)
+   (doom-modeline-unicode-fallback t)
+   (doom-modeline-buffer-encoding nil)
+   (doom-modeline-buffer-state-icon t)
+   (doom-modeline-buffer-file-name-style 'truncate-upto-project)))
 
 ;; Use minions to make the modeline clean
 ;; minions: https://github.com/tarsius/minions
