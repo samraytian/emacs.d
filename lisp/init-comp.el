@@ -16,6 +16,7 @@
 ;; A better minibuffer interactive completion system
 ;; link: https://github.com/minad/vertico
 (use-package vertico
+  :ensure t
   :init
   (vertico-mode)
   :config
@@ -28,6 +29,7 @@
 ;; A completion style that gives completions in order of relevance
 ;; link: https://github.com/oantolin/orderless
 (use-package orderless
+  :ensure t
   :init
   (setq completion-styles '(orderless partial-completion basic))
   (setq completion-category-defaults nil)
@@ -36,6 +38,7 @@
 ;; Support pinyin first letter matching for Chinese characters in orderless, avy etc
 ;; link: https://github.com/cute-jumper/pinyinlib.el
 (use-package pinyinlib
+  :ensure t
   :after orderless
   :autoload pinyinlib-build-regexp-string
   :init
@@ -47,6 +50,7 @@
 ;; Rich annotations in the minibuffer
 ;; link: https://github.com/minad/marginalia
 (use-package marginalia
+  :ensure t
   :init
   (marginalia-mode))
 

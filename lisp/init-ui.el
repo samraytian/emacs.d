@@ -19,6 +19,7 @@
 
 ;; Rainbow Delimiters
 (use-package rainbow-delimiters
+  :ensure t
   :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
 
 ;; Line number
@@ -38,11 +39,13 @@
 ;; Install nerd-icons for both gui and terminal
 ;; Use M-x nerd-icons-install-fonts to install Symbols Nerd Fonts Mono
 ;; nerd-icons: https://github.com/rainstormstudio/nerd-icons.el
-(use-package nerd-icons)
+(use-package nerd-icons
+  :ensure t)
 
 ;; GUI frame padding
 ;; spacious-padding: https://protesilaos.com/emacs/
 (use-package spacious-padding
+  :ensure t
   :init (spacious-padding-mode 1))
 
 ;; Modeline
@@ -69,6 +72,7 @@
 ;; Use minions to make the modeline clean
 ;; minions: https://github.com/tarsius/minions
 (use-package minions
+  :ensure t
   :hook (doom-modeline-mode . minions-mode))
 
 (provide 'init-ui)

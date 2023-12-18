@@ -1,4 +1,4 @@
-;;; init-paclage.el --- Package management.  -*- lexical-binding: t -*-
+;;; init-package.el --- Package management.  -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2023 Samray Tian
 
@@ -40,8 +40,8 @@
 
 ;; Configure use-package
 (eval-and-compile
-  (setq use-package-always-ensure t)
-  (setq use-package-always-defer t)
+  (setq use-package-always-ensure nil)
+  (setq use-package-always-defer nil)
   (setq use-package-expand-minimally t)
   (setq use-package-enable-imenu-support t)
   (setq use-package-compute-statistics t)
@@ -54,8 +54,10 @@
 
 ;; Use packages that integrate with use-package
 (use-package use-package-ensure-system-package)
-(use-package diminish)
-(use-package bind-key)
+(use-package diminish
+  :ensure t)
+(use-package bind-key
+  :ensure t)
 
-(provide 'init-paclage)
-;; init-paclage.el ends here
+(provide 'init-package)
+;; init-package.el ends here

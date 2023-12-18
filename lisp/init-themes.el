@@ -13,6 +13,7 @@
 ;; doom-themes
 ;; https://github.com/doomemacs/themes
 (use-package doom-themes
+  :ensure t
   :config
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
@@ -25,6 +26,7 @@
 ;; ef themes
 ;; https://protesilaos.com/emacs/ef-themes
 (use-package ef-themes
+  :ensure t
   :init
   (setq ef-themes-region '(intense no-extend neutral))
   (setq ef-themes-mixed-fonts t

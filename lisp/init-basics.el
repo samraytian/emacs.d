@@ -20,7 +20,8 @@
 (setopt use-short-answers t)
 
 ;; Keep emacs home dir clean
-(use-package no-littering)
+(use-package no-littering
+  :ensure t)
 
 ;; Prevent to create lockfiles
 (setq create-lockfiles nil)

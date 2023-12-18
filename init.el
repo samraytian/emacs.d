@@ -34,7 +34,7 @@
 
 ;; Requisites
 (with-temp-message ""
-  (require 'init-paclage)           ;; package manager
+  (require 'init-package)           ;; package manager
   (require 'init-basics)            ;; emacs basic settings
   (require 'init-editor)            ;; default editor behavior
   (require 'init-keys)              ;; keybindings
