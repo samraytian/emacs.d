@@ -19,12 +19,23 @@
 ;; Use shorter answers for `yes-or-no-p'
 (setopt use-short-answers t)
 
+;; Directly modify selected text
+(delete-selection-mode t)
+
+;; Prevent to create lockfiles
+(setq create-lockfiles nil)
+
 ;; Keep emacs home dir clean
 (use-package no-littering
   :ensure t)
 
-;; Prevent to create lockfiles
-(setq create-lockfiles nil)
+;; Auto reload file if it is changed by external program
+(setq auto-revert-verbose nil
+      auto-revert-interval 10
+      auto-revert-remote-files t
+      auto-revert-check-vc-info t
+      global-auto-revert-non-file-buffers t)
+(global-auto-revert-mode t)
 
 ;; Save history
 (use-package savehist

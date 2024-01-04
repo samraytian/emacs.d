@@ -36,7 +36,6 @@
 (with-temp-message ""
   (require 'init-package)           ;; package manager
   (require 'init-basics)            ;; emacs basic settings
-  (require 'init-editor)            ;; default editor behavior
   (require 'init-keys)              ;; keybindings
   (require 'init-comp)              ;; auto completion
   (require 'init-themes)            ;; themes
