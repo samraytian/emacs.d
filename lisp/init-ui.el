@@ -49,7 +49,7 @@
   :init (spacious-padding-mode 1))
 
 ;; Modeline
-;; doom-modeline: https://github.com/seagle0128/doom-modeline/tree/master
+;; link: https://github.com/seagle0128/doom-modeline/tree/master
 (use-package doom-modeline
   :ensure t
   :init
@@ -69,8 +69,9 @@
    (doom-modeline-buffer-state-icon t)
    (doom-modeline-buffer-file-name-style 'truncate-upto-project)))
 
-;; Use minions to make the modeline clean
-;; minions: https://github.com/tarsius/minions
+;; Minions
+;; Make the modeline clean
+;; link:: https://github.com/tarsius/minions
 (use-package minions
   :ensure t
   :hook (doom-modeline-mode . minions-mode))
